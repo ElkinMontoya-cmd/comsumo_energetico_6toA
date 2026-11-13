@@ -42,7 +42,7 @@
         "type": "function",
         "z": "5ea1000000000001",
         "name": "Simular consumo 6toA",
-        "func": "const consumo = (10 + Math.floor(Math.random() * 142)) / 10;\nmsg.payload = {\n    laboratorio: \"6toA\",\n    consumo_kWh: consumo\n};\nreturn msg;",
+        "func": "const consumo = (10 + Math.floor(Math.random() * 141)) / 10;\nmsg.payload = {\n    laboratorio: \"6toA\",\n    consumo_kWh: consumo\n};\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
