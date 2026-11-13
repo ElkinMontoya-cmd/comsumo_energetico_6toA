@@ -7,6 +7,13 @@
         "info": "Simulación del consumo energético del laboratorio 6toA."
     },
     {
+        "id": "b6edc95c6c8ca4ed",
+        "type": "tab",
+        "label": "Consumo 6toA",
+        "disabled": false,
+        "info": "Simulación del consumo energético del laboratorio 6toA."
+    },
+    {
         "id": "5ea1000000000002",
         "type": "inject",
         "z": "5ea1000000000001",
@@ -54,6 +61,60 @@
         "id": "5ea1000000000004",
         "type": "debug",
         "z": "5ea1000000000001",
+        "name": "Mostrar lectura",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 650,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3fe43bdfa8f07468",
+        "type": "inject",
+        "z": "b6edc95c6c8ca4ed",
+        "name": "Consultar consumo",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "0dc17f9d4855c55e"
+            ]
+        ]
+    },
+    {
+        "id": "0dc17f9d4855c55e",
+        "type": "function",
+        "z": "b6edc95c6c8ca4ed",
+        "name": "Simular consumo 6toA",
+        "func": "const consumo = (10 + Math.floor(Math.random() * 141)) / 10;\nmsg.payload = {\n    laboratorio: \"6toA\",\n    consumo_kWh: consumo\n};\nreturn msg;",
+        "outputs": 1,
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "50ceb939d306cdc8"
+            ]
+        ]
+    },
+    {
+        "id": "50ceb939d306cdc8",
+        "type": "debug",
+        "z": "b6edc95c6c8ca4ed",
         "name": "Mostrar lectura",
         "active": true,
         "tosidebar": true,
